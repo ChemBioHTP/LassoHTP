@@ -3,6 +3,8 @@ LassoHTP is a computational tool geared towards lasso peptide design and discove
 
 Lasso peptides are a unique class of ribosomally synthesized and post-translationally modified peptides (RiPP) that exhibit interesting bioactivities such as antimicrobial activity. Genome-based and bioengineering strategies are typically applied to lasso peptide discovery and design, and have largely neglected computational strategies. LassoHTP is one computational strategy that is in development.
 
+!(image.jpg)
+
 LassoHTP contains three main modules:
 1. Template constructor
 2. Template mutator
