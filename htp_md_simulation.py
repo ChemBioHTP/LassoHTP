@@ -43,7 +43,7 @@ def _combine_parm(self, lig_parms, prm_out_path='', o_dir='', ifsavepdb=0, ifsol
     leap_path= self.cache_path+'/leap.in'
     sol_path= self.path_name+'_ff.pdb'
     with open(leap_path, 'w') as of:
-        of.write('source leaprc.protein.ff14SBmod'+line_feed) #using modified ff14SB - Reecan
+        of.write('source leaprc.protein.ff14SBmod'+line_feed) #using modified ff14SB
         of.write('source leaprc.gaff'+line_feed)
         of.write('source leaprc.water.tip3p'+line_feed)
         # ligands
@@ -54,7 +54,7 @@ def _combine_parm(self, lig_parms, prm_out_path='', o_dir='', ifsavepdb=0, ifsol
             of.write('loadAmberParams '+frcmod+line_feed)
             of.write('loadAmberPrep '+prepi+line_feed)
         of.write('a = loadpdb '+self.path+line_feed)
-        #no need to change this for l.p.'s of any ring size. - Reecan
+        #no need to change this for l.p.'s of any ring size.
         of.write('bond a.2.N a.ASX.C'+line_feed) # lasso peptide thread
         of.write('bond a.ASX.CG a.14.N'+line_feed) #isopeptide
         # igb Radii
