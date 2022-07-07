@@ -283,7 +283,6 @@ def main():
     """Driver for lasso_peptide_gen()
 
     """
-   # ring, loop, tail_length, isopeptide = reader()
     ring = 8
     loop = 8 
     tail_length = 10
