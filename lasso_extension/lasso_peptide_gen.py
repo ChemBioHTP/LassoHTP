@@ -273,30 +273,11 @@ def lasso_peptide_gen(ring: int,
 
     if ring not in [7,8,9]:
         raise ValueError("That ring size is not currently available")
-    #elif loop not in [7, 8]:
-        raise ValueError("That loop size is not currently available")
     elif tail < 0:
         raise ValueError("Tail size must be >= 0")
-    #elif isopeptide not in ["d", "e"]:
-    #    raise ValueError("Isopeptide linker must be d (aspartate) or e (glutamate)")
 
     scaffold = f"lasso_extension/scaffolds/{ring}{isopeptide}_{loop}.pdb"
     lasso_extender(scaffold, tail, outfile, extender)
-
-#def reader(seq:str, ring_len: int, upper_plug:int):
-#    """reads input from seq_parser.
-#    """
-#    pass
-#    seq_len=len(seq)
-#    ring = ring_len
-#    loop = upper_plug
-#    isopeptide = ''
-#    tail_length = seq_len - ( ring + loop )
-#    for idx, char in enumerate(seq):
-#        idx +=1
-#        if idx == ring:
-#           isopeptide = 'e' if char in 'E' else 'd'
-#    return ring, loop, tail_length, isopeptide
 
 def main():
     """Driver for lasso_peptide_gen()
