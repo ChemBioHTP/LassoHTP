@@ -3,16 +3,15 @@ from Class_Conf import *
 from seq_parser import *
 
 def main():
-    #initial PDB
-    #use tleap to randomly mutate the PDB
-        PDB1=PDB('8e_11_2.pdb',wk_dir='mccJ25_RGD')
-        sequence=seq_flags('GGAGHVPEYFVRGDTPISFYG',8) #lasso seq
+    #specify the annotated sequence and working directory
+        seq, ring_length, upper_plug, wk_dir = 'GGAGHVPEYFVRGDTPISFYG', 8, 11, ''
+        proto_lasso=construct_scaffold(seq, ring_length, upper_plug, wk_dir)
+        print(proto_lasso)
+        PDB1=PDB(proto_lasso,wk_dir)
+        sequence=seq_flags(seq, 8) #lasso seq
         print(PDB1.Add_MutaFlag(sequence))
         PDB1.PDB2PDBwLeap()
-    # remove causal protonation from leap (Not sure if it's better to be before Min or not)
-        #PDB1.rm_allH()
-        #PDB1.get_protonation()
-    #use minimization to relax each mutated PDB
+    #use minimization to relax each mutated lasso
         PDB1.PDB2FF()
         PDB1.PDBMin()
     #run MD
