@@ -820,12 +820,12 @@ class PDB():
         #Reecan: added custom frcmod and atom bonds
         leapin_path = self.cache_path+'/leap_P2PwL.in'
         leap_input=open(leapin_path,'w')
-        leap_input.write('source leaprc.protein.ff14SBmod\n')
+        leap_input.write(f'source {os.path.split(os.path.realpath(__file__))[0]}/leaprc.protein.ff14SBmod\n')
         Nring=int(self.name[:1])
         Nring+=1
         ring_num = str(Nring)
         if 'd' in self.name:
-            leap_input.write('loadAmberParams ligands/ligand_ASX.frcmod1\n')
+            leap_input.write('loadAmberParams ligands/ligand_ASX.frcmod\n')
             leap_input.write('loadAmberParams ligands/ligand_ASX.frcmod2\n')
             leap_input.write('loadAmberPrep ligands/ligand_ASX.prepin\n')
             leap_input.write('a = loadpdb '+out_PDB_path1+'\n')
@@ -844,18 +844,18 @@ class PDB():
             leap_input.write('deletebond a.ASX.CG a.'+ring_num+'.N\n')
             leap_input.write('deletebond a.ASX.C a.2.N\n')
         else:
-            leap_input.write('loadAmberParams ligands/ligand_GLX.frcmod1\n')
+            leap_input.write('loadAmberParams ligands/ligand_GLX.frcmod\n')
             leap_input.write('loadAmberParams ligands/ligand_GLX.frcmod2\n')
             leap_input.write('loadAmberPrep ligands/ligand_GLX.prepin\n')
             leap_input.write('a = loadpdb '+out_PDB_path1+'\n')
             #TODO: bond atoms based on upper loop
             #leap_input.write('bond a.'+ring_num+'.N a.GLX.C01\n')#peptide bond
             leap_input.write('bond a.GLX.CD a.1.N\n') #isopeptide bond
-           #leap_input.write('deletebond a.GLX.O a.GLX.HG2\n')
-            leap_input.write('bond a.GLX.CA a.GLX.C01\n')
+            leap_input.write('deletebond a.GLX.O a.GLX.HG2\n')
+            #leap_input.write('bond a.GLX.CA a.GLX.C01\n')
             leap_input.write('deletebond a.GLX.CD a.GLX.C01\n') #artifact
             leap_input.write('deletebond a.GLX.CD a.'+ring_num+'.N\n')#artifact
-            #leap_input.write('remove a a.GLX.H02\n')
+            leap_input.write('remove a a.GLX.H02\n')
             leap_input.write('remove a a.GLX.O01\n')
         leap_input.write('savepdb a '+out_PDB_path2+'\n')
         #
@@ -1293,7 +1293,7 @@ class PDB():
         leap_path= self.cache_path+'/leap.in'
         sol_path= self.path_name+'_ff.pdb'
         with open(leap_path, 'w') as of:
-            of.write('source leaprc.protein.ff14SBmod'+line_feed) #using modified ff14SB - Reecan
+            of.write(f'source {os.path.split(os.path.realpath(__file__))[0]}/leaprc.protein.ff14SBmod'+line_feed) #using modified ff14SB - Reecan # need non-cwd depending path @shaoqz
             #of.write('source leaprc.gaff'+line_feed)
             of.write('source leaprc.water.tip3p'+line_feed)
             # ligands
@@ -1301,11 +1301,11 @@ class PDB():
             Nring+=1
             ring_num = str(Nring)
             if 'd' in self.name:
-                of.write('loadAmberParams ligands/ligand_ASX.frcmod1'+line_feed)
+                of.write('loadAmberParams ligands/ligand_ASX.frcmod'+line_feed)
                 of.write('loadAmberParams ligands/ligand_ASX.frcmod2'+line_feed)
                 of.write('loadAmberPrep ligands/ligand_ASX.prepin'+line_feed)
             else: 
-                of.write('loadAmberParams ./ligands/ligand_GLX.frcmod1'+line_feed)
+                of.write('loadAmberParams ./ligands/ligand_GLX.frcmod'+line_feed)
                 of.write('loadAmberParams ./ligands/ligand_GLX.frcmod2'+line_feed)
                 of.write('loadAmberPrep ./ligands/ligand_GLX.prepin'+line_feed)
             for prepi, frcmod in lig_parms:
@@ -1328,10 +1328,10 @@ class PDB():
                 of.write('bond a.GLX.CD a.1.N'+line_feed) #isopeptide
                 of.write('remove a a.GLX.O01'+line_feed)
                 of.write('remove a a.GLX.H02'+line_feed)
-                #of.write('bond a.GLX.CG a.GLX.HG2'+line_feed)
-                of.write('bond a.GLX.C01 a.GLX.CA'+line_feed)
+                of.write('bond a.GLX.CG a.GLX.HG2'+line_feed)
+                # of.write('bond a.GLX.C01 a.GLX.CA'+line_feed)
                 of.write('deletebond a.GLX.CD a.'+ring_num+'.N'+line_feed)#artifact
-                #of.write('deletebond a.GLX.O a.GLX.HG2'+line_feed)
+                of.write('deletebond a.GLX.O a.GLX.HG2'+line_feed)
                 of.write('deletebond a.GLX.CD a.GLX.C01'+line_feed)
             # igb Radii
             if igb != None:
