@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(0, '../../')
 from Class_PDB import *
 from Class_Conf import *
 from seq_parser import *
