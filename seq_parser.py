@@ -2,8 +2,9 @@ import sys
 sys.path.insert(0, '/usr/LassoHTP/lasso_extension')
 import subprocess
 import os
-from lasso_peptide_gen import *
+from lasso_extension.lasso_peptide_gen import *
 
+module_file_dir = os.path.split(os.path.realpath(__file__))[0]
 def get_cwd(directory):
     """get directory
     """
@@ -51,7 +52,7 @@ def construct_scaffold(seq:str, ring_len: int, upper_plug:int, wk_dir):
     seq, ring, loop, tail_length, isopeptide = seq_parse(seq, ring_len, upper_plug)
     outfile = f"{ring}{isopeptide}_{loop}_{tail_length}.pdb"
     lasso_peptide_gen(ring, loop, tail_length, isopeptide, outfile)
-    out_path = "lasso_extension/output_structures/" + outfile
+    out_path = f"{module_file_dir}/lasso_extension/output_structures/" + outfile
     outfile_mover(out_path, cwd)   
  
     return out_path
