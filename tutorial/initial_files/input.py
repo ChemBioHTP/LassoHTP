@@ -3,14 +3,17 @@ from Class_Conf import *
 from seq_parser import *
 
 def main():
+    #Module 1: Scaffold Constructor
     #specify the annotated sequence and working directory
         seq, ring_length, upper_plug, wk_dir = 'GGAGHVPEYFVRGDTPISFYG', 8, 11, ''
         proto_lasso=construct_scaffold(seq, ring_length, upper_plug, wk_dir)
         print(proto_lasso)
         PDB1=PDB(proto_lasso,wk_dir)
+    #Module 2: Mutation
         sequence=seq_flags(seq, 8) #lasso seq
         print(PDB1.Add_MutaFlag(sequence))
         PDB1.PDB2PDBwLeap()
+    #Module 3: Molecular Dynamics
     #use minimization to relax each mutated lasso
         PDB1.PDB2FF()
         PDB1.PDBMin()
