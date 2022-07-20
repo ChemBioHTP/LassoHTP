@@ -10,7 +10,7 @@ Lasso peptides are a unique class of ribosomally synthesized and post-translatio
 LassoHTP contains three main modules:
 1. Scaffold constructor
 2. Mutant generator
-3. High-throughput MD simulator
+3. MD simulator
 
 The scaffold constructor module builds molecular templates, or scaffolds, of a lasso peptide with variable ring size, upper loop length, and tail length.
 
