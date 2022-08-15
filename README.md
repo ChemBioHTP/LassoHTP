@@ -1,4 +1,7 @@
 # LassoHTP
+
+ChemRxiv paper: https://chemrxiv.org/engage/chemrxiv/article-details/62ce2a51b464fa07a35e0a24
+
 LassoHTP is a computational tool geared towards lasso peptide design and discovery. Major functionalities include the high throughput (HTP) construction of lasso peptides as well as HTP molecular dynamics (MD) simulations to predict lasso peptide thermodynamic parameters.
 
 Lasso peptides are a unique class of ribosomally synthesized and post-translationally modified peptides (RiPP) that exhibit interesting bioactivities such as antimicrobial activity. Genome-based and bioengineering strategies are typically applied to lasso peptide discovery and design, and have largely neglected computational strategies. LassoHTP is one computational strategy that is in development.
