@@ -8,9 +8,9 @@ def main():
         seq, ring_length, upper_plug, wk_dir = '', , , ''
         proto_lasso=construct_scaffold(seq, ring_length, upper_plug, wk_dir)
         print(proto_lasso)
-        PDB1=PDB(proto_lasso,wk_dir)
+        PDB1=PDB(proto_lasso,wk_dir=wk_dir)
     #Module 2: Mutation
-        sequence=seq_flags(seq, 8) #lasso seq
+        sequence=seq_flags(seq, ring_length) #lasso seq
         print(PDB1.Add_MutaFlag(sequence))
         PDB1.PDB2PDBwLeap()
     #Module 3: Molecular Dynamics
