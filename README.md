@@ -21,3 +21,12 @@ The HTP MD simulation module performs multiscale-MD on LassoHTP-constructed lass
 The scaffold library consists of only one scaffold per topology that involves a unique combination of ring size (e.g., seven-, eight-, or nine-membered ring), loop size (e.g, 2-18 amino acids), and linker type (e.g., Asp or Glu). Specifically, the library consists of 70 scaffold structures with 18 seven-membered ring structures, 34 eight-membered ring structures, and 18 nine-membered ring structures. Most of the scaffolds (56 out of 70) were constructed using steered molecular dynamics simulations. The rest of the scaffolds were constructed by using PDB structure as template. The PDB IDs of these templates are 6mw6 (ring size: 8; loop size: 9; linker: Asp/Glu), 2mmw (ring size: 8; loop size: 11; linker: Asp/Glu), 6por (ring size: 8; loop size: 18; linker: Asp/Glu), 5zcn (ring size: 9; loop size: 4; linker: Asp/Glu), 5gvo (ring size: 9; loop size: 5; linker: Asp/Glu), 5d9e (ring size: 9; loop size: 6; linker: Asp/Glu), and 2mlj (ring size: 9; loop size: 7; linker: Asp/Glu).  
 
 /tutorial contains a demo using the RGD mutant of microcin J25.
+
+# Requirements
+## External Program
+- AmberTool/Amber
+## Python Package
+- python >= 3.6
+- numpy
+- pdb2pqr
+- openbabel
