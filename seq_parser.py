@@ -18,18 +18,6 @@ def get_cwd(directory):
 
     return cwd
 
-#def get_cwd(directory):
-#    """get directory
-#    """
-#    
-#    if(directory):
-#        cwd = os.getcwd()
-#    else:
-#        os.mkdir(directory)
-#        cwd = os.path.abspath(directory) 
-#    
-#    return cwd
-
 def seq_parse(seq:str, ring_len: int, upper_plug: int):
 
     sequence = seq
@@ -75,6 +63,3 @@ def outfile_mover(lasso,wk_dir):
     """moves outfile to working directory.
     """
     filePath = shutil.copy(lasso, wk_dir)
-    #print(filePath)
-    #command = ['cp', "/" + lasso, "/" + wk_dir + "/" + lasso ]
-    #subprocess.run(command)
