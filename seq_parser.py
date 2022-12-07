@@ -1,9 +1,8 @@
 import sys
-sys.path.insert(0, '/gpfs23/scratch/juarezrj/temp/LassoHTP/lasso_extension')
 import shutil
 import subprocess
 import os
-from lasso_peptide_gen import *
+from lasso_extension.lasso_peptide_gen import *
 
 path = os.getcwd()
 
