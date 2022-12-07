@@ -76,6 +76,6 @@ def outfile_mover(lasso,wk_dir):
     """moves outfile to working directory.
     """
     filePath = shutil.copy(lasso, wk_dir)
-    print(filePath)
+    #print(filePath)
     #command = ['cp', "/" + lasso, "/" + wk_dir + "/" + lasso ]
     #subprocess.run(command)
