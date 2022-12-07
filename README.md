@@ -25,7 +25,7 @@ The scaffold library consists of only one scaffold per topology that involves a 
 # Requirements
 ## External Program
 - AmberTool/Amber
-## Python Package
+## Python Packages
 - python >= 3.6
 - numpy
 - pdb2pqr
