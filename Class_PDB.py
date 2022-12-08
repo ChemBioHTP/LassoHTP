@@ -854,9 +854,7 @@ class PDB():
            #leap_input.write('deletebond a.GLX.O a.GLX.HG2\n')
             leap_input.write('bond a.GLX.CA a.GLX.C01\n')
             leap_input.write('deletebond a.GLX.CD a.GLX.C01\n') #artifact
-            leap_input.write('deletebond a.GLX.CD a.'+ring_num+'.N\n')#artifact
-            #leap_input.write('remove a a.GLX.H02\n')
-            leap_input.write('remove a a.GLX.O01\n')
+           #leap_input.write('deletebond a.GLX.CD a.'+ring_num+'.N\n')#artifact
         leap_input.write('savepdb a '+out_PDB_path2+'\n')
         #
         leap_input.write('saveamberparm a '+out_PDB_path2+'.prmtop '+out_PDB_path2+'.inpcrd'+line_feed)
@@ -1326,11 +1324,11 @@ class PDB():
             else: 
                 #of.write('bond a.'+ring_num+'.N a.GLX.C01'+line_feed) # lasso peptide thread
                 of.write('bond a.GLX.CD a.1.N'+line_feed) #isopeptide
-                of.write('remove a a.GLX.O01'+line_feed)
-                of.write('remove a a.GLX.H02'+line_feed)
+                #of.write('remove a a.GLX.O01'+line_feed)
+                #of.write('remove a a.GLX.H02'+line_feed)
                 #of.write('bond a.GLX.CG a.GLX.HG2'+line_feed)
                 of.write('bond a.GLX.C01 a.GLX.CA'+line_feed)
-                of.write('deletebond a.GLX.CD a.'+ring_num+'.N'+line_feed)#artifact
+               # of.write('deletebond a.GLX.CD a.'+ring_num+'.N'+line_feed)#artifact
                 #of.write('deletebond a.GLX.O a.GLX.HG2'+line_feed)
                 of.write('deletebond a.GLX.CD a.GLX.C01'+line_feed)
             # igb Radii
