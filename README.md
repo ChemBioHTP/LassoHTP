@@ -25,6 +25,8 @@ The scaffold library consists of only one scaffold per topology that involves a 
 # Requirements
 ## External Program
 - AmberTool/Amber
+- Anaconda/miniconda
+
 ## Python Packages
 - python >= 3.6
 - numpy
