@@ -4,11 +4,10 @@ from seq_parser import *
 
 def main():
     #specify the annotated sequence and working directory
-        seq, ring_length, upper_plug, wk_dir = 'GGAGHVPEYFVRGDTPISFYG', 8, 11, ''
+        seq, ring_length, upper_plug, wk_dir = 'GGAGHVPEYFVRGDTPISFYG', 8, 11, 'test'
         proto_lasso=construct_scaffold(seq, ring_length, upper_plug, wk_dir)
-        print(proto_lasso)
-        PDB1=PDB(proto_lasso,wk_dir)
-        sequence=seq_flags(seq, 8) #lasso seq
+        PDB1=PDB(proto_lasso, wk_dir=wk_dir)
+        sequence=seq_flags(seq, ring_length) #lasso seq
         print(PDB1.Add_MutaFlag(sequence))
         PDB1.PDB2PDBwLeap()
     #use minimization to relax each mutated lasso
