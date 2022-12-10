@@ -9,12 +9,10 @@ path = os.getcwd()
 def get_cwd(directory):
     """get directory
     """
-
-    if os.path.isdir(directory):
-        cwd = f"{path}/{directory}"
-    else:
-        os.mkdir(path+ "/" + directory)
-        cwd = os.path.abspath(path + "/" + directory)
+    real_dir_path = f"{path}/{directory}"
+    if not os.path.isdir(real_dir_path):
+        os.mkdir(real_dir_path)    
+    cwd = os.path.abspath(real_dir_path)
 
     return cwd
 
