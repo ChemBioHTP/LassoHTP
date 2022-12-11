@@ -17,7 +17,9 @@ def main():
     #run MD
         PDB1.rm_wat()
         PDB1.PDB2FF()
-        PDB1.conf_prod['nstlim'] = 500 # Edit MD configuration (see default in Class_Conf.py - Config.Amber)
+        PDB1.conf_heat['nstlim'] = 10000
+        PDB1.conf_equi['nstlim'] = 2000
+        PDB1.conf_prod['nstlim'] = 2000 # Edit MD configuration (see default in Class_Conf.py - Config.Amber)
         PDB1.PDBMD(tag='_mccJ25_RGD') #name for dir to store MD input files in
 
 if __name__ == "__main__":
