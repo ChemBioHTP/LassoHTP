@@ -833,14 +833,14 @@ class PDB():
             leap_input.write('bond a.'+ring_num+'.N a.ASX.C\n')
             leap_input.write('bond a.ASX.CG a.1.N\n') #isopeptide bond
             leap_input.write('remove a a.ASX.OD2\n')
-            leap_input.write('remove a a.ASX.H02\n')
+            leap_input.write('remove a a.ASX.HB2\n')
             leap_input.write('remove a a.ASX.HB3\n')
-            leap_input.write('remove a a.1.H1\n')
-            leap_input.write('remove a a.1.H2\n')
-            leap_input.write('remove a a.1.H3\n')
-            leap_input.write('remove a a.9.H1\n')
-            leap_input.write('remove a a.9.H2\n')
-            leap_input.write('remove a a.9.H3\n')
+            #leap_input.write('remove a a.1.H1\n')
+            #leap_input.write('remove a a.1.H2\n')
+            #leap_input.write('remove a a.1.H3\n')
+            #leap_input.write('remove a a.9.H1\n')
+            #leap_input.write('remove a a.9.H2\n')
+            #leap_input.write('remove a a.9.H3\n')
             leap_input.write('deletebond a.ASX.CG a.'+ring_num+'.N\n')
             leap_input.write('deletebond a.ASX.C a.2.N\n')
         else:
@@ -874,7 +874,7 @@ class PDB():
 
     def partition(self):
         '''
-        partition the lasso structure into parts -Reecan
+        partition the lasso structure into parts
         '''
 
         a = list(self.topology_sort())
@@ -1317,7 +1317,7 @@ class PDB():
                 of.write('deletebond a.ASX.CG a.'+ring_num+'.N'+line_feed)
                 #of.write('deletebond a.ASX.C a.2.N'+line_feed)
                 of.write('deletebond a.ASX.O a.10.C'+line_feed)
-                of.write('remove a a.ASX.OXT'+line_feed)
+                #of.write('remove a a.ASX.OXT'+line_feed)
                 of.write('remove a a.ASX.OD2'+line_feed)
                 of.write('remove a a.ASX.H01'+line_feed)
                 of.write('deletebond a.ASX.OD1 a.10.N'+line_feed)
