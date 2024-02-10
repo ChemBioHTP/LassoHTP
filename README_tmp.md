@@ -14,7 +14,7 @@ Or use the same environment as EnzyHTP (https://enzyhtp-doc.readthedocs.io/en/la
 ## Step 2 Path
 
 1. Download and unzip LassoHTP2 package
-`tar -xzvf LassoHTP2_v1.tar.gz`
+`tar -xzvf LassoHTP2_v2.tar.gz`
 
 2. Update the package path in `main.py` and `main_arg.py`. For example:
 `sys.path.append('/your/path/to/LassoHTP2_v2/construc_package')`
